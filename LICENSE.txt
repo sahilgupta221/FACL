@@ -2,7 +2,7 @@ This program (the ONE) is released under the GPLv3 (see details below).
 The included vector map data of the downtown Helsinki area is not GPL'ed 
 and it should be used only with the ONE simulator 
 (Copyright: Maanmittauslaitos, 2007).
-
+Test first
 ------------------------------------------------------------------------
 
                     GNU GENERAL PUBLIC LICENSE
