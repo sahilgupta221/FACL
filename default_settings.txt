@@ -96,6 +96,18 @@ Group.msgTtl = 300
 Group.nrofHosts = 40
 Group.guardiannumber = 2
 
+# Define new application
+pingApp.type = PingApplication
+pingApp.interval = 500
+pingApp.destinationRange = 0,18
+pingApp.pingSize = 5
+pingApp.pongSize = 5
+pingApp.passive = false
+
+# Set Ping app for all nodes
+Group.nrofApplications = 1
+Group.application1 = pingApp
+
 # group1 (Malicious_app) specific settings
 Group1.groupID = Malicious_app
 Group1.bufferSize = 50M
