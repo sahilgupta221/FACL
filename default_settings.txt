@@ -172,6 +172,13 @@ Group8.nrofHosts = 10
 Group8.nrofInterfaces = 1
 Group8.interface1 = GuardianSMInterface
 
+# energy settings
+Group.initialEnergy = 5000
+Group.scanEnergy = 0.1
+Group.transmitEnergy = 0.2
+Group.scanResponseEnergy = 0.1
+Group.baseEnergy = 0.01
+
 ## Message creation parameters 
 # How many event generators
 Events.nrof = 1
@@ -207,13 +214,15 @@ MapBasedMovement.mapFile4 = data/shops.wkt
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 1
+Report.nrofReports = 2
+Report.granularity =1000
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
 Report.reportDir = reports/
 # Report classes to load
 Report.report1 = MessageStatsReport
+Report.report2 = EnergyLevelReport
 
 ## Default settings for some routers settings
 ProphetRouter.secondsInTimeUnit = 30
