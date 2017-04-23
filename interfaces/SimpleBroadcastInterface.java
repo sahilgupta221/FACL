@@ -40,13 +40,16 @@ public class SimpleBroadcastInterface extends NetworkInterface {
 	 * Tries to connect this host to another host. The other host must be
 	 * active and within range of this host for the connection to succeed. 
 	 * @param anotherInterface The interface to connect to
+         * sahil: added no connection between same kind of group host
 	 */
 	public void connect(NetworkInterface anotherInterface) {
 		if (isScanning()  
 				&& anotherInterface.getHost().isRadioActive() 
 				&& isWithinRange(anotherInterface) 
 				&& !isConnected(anotherInterface)
-				&& (this != anotherInterface)) {
+				&& (this != anotherInterface)
+                        && !(this.host.groupId.equals(anotherInterface.getHost().groupId))
+                        ) {
 			// new contact within range
 			// connection speed is the lower one of the two speeds 
 			int conSpeed = anotherInterface.getTransmitSpeed();
