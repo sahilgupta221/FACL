@@ -1,0 +1,41 @@
+commit b94a2dd2e79203b6f36ac1d45d0c7370d6930bc6
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Sat Apr 22 22:49:11 2017 -0400
+
+    Default_setting file. Implemented energy model and energy report.
+
+commit cf55f85071e9f2d261c26bea0b718c7813a360de
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Sat Apr 22 22:34:18 2017 -0400
+
+    Adjust Various interfaces transmission range randomly. Looking for real data in transmission range and transmission rate.
+
+commit 3e662e866fd81f50ca6f5135364373bb99e56c90
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Sat Apr 22 22:30:51 2017 -0400
+
+    SimpleBroadcastInterface connect method. Change in if condition to not allow same group host having connections and _app condition added.
+
+commit c945193b3555908c7679edbec2c7b29daf096535
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Sat Apr 22 21:38:03 2017 -0400
+
+    SimpleBroadcastInterface connect method. Change in if condition to not allow same group host having connections.
+
+commit 9f97dc7b784b4edbf9b27c7e69bd236e7a6b847d
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Thu Apr 20 20:33:13 2017 -0400
+
+    ALIBABA
+
+commit ad6d2aeda07a8d4e4d7c225b434b15748ace2397
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Thu Apr 20 20:08:34 2017 -0400
+
+    trial
+
+commit 6d9c5f4e937c23c2dda93a5ea6ac6906ddbd4b8a
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Thu Apr 20 16:40:40 2017 -0400
+
+    first commit

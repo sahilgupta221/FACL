@@ -193,7 +193,7 @@ public class ProphetRouter extends ActiveRouter {
 	
 	@Override
 	public void update() {
-		super.update();
+		super.update();//involve in finishing transfer
 		if (!canStartTransfer() ||isTransferring()) {
 			return; // nothing to transfer or is currently transferring 
 		}
@@ -202,7 +202,7 @@ public class ProphetRouter extends ActiveRouter {
 		if (exchangeDeliverableMessages() != null) {
 			return;
 		}
-		
+	        // if not final destination then route according to routing algorithm
 		tryOtherMessages();		
 	}
 	
