@@ -21,41 +21,41 @@ Scenario.endTime = 43200
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
 btInterface.transmitSpeed = 250k
-btInterface.transmitRange = 10
+btInterface.transmitRange = 50
 
 # High speed, long range, interface for group 4
 highspeedInterface.type = SimpleBroadcastInterface
 highspeedInterface.transmitSpeed = 10M
-highspeedInterface.transmitRange = 1000
+highspeedInterface.transmitRange = 50
 
 # "GuardianappInterface" interface between guardian and apps
 GuardianappInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
 GuardianappInterface.transmitSpeed = 250k
-GuardianappInterface.transmitRange = 10
+GuardianappInterface.transmitRange = 350
 
 # "GuardianSMInterface" interface between guardian and sensor mote
 GuardianSMInterface.type = SimpleBroadcastInterface
 GuardianSMInterface.transmitSpeed = 10M
-GuardianSMInterface.transmitRange = 1000
+GuardianSMInterface.transmitRange = 50
 
 # "GuardianRAInterface" interface between guardian and RA
 GuardianRAInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
 GuardianRAInterface.transmitSpeed = 250k
-GuardianRAInterface.transmitRange = 10
+GuardianRAInterface.transmitRange = 350
 
 # "RAappInterface" interface between guardian and RA
 RAappInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
 RAappInterface.transmitSpeed = 250k
-RAappInterface.transmitRange = 10
+RAappInterface.transmitRange = 50
 
 # "RARSInterface" interface between guardian and RA
 RARSInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
 RARSInterface.transmitSpeed = 250k
-RARSInterface.transmitRange = 10
+RARSInterface.transmitRange = 250
 
 # Define 6 different node groups
 Scenario.nrofHostGroups = 8
@@ -82,7 +82,7 @@ Scenario.nrofHostGroups = 8
 
 # Common settings for all groups
 Group.movementModel = StationaryMovement
-Group.router = ProphetRouter
+Group.router = EpidemicRouter
 Group.bufferSize = 5M
 Group.waitTime = 0, 120
 # All nodes have the bluetooth interface
@@ -100,53 +100,56 @@ Group.guardiannumber = 2
 Group1.groupID = Malicious_app
 Group1.bufferSize = 50M
 Group1.movementModel = StationaryMovement
-Group1.nodeLocation = 550, 150
+Group1.nodeLocation = 350, 100
 Group1.nrofHosts = 1
-Group1.nrofInterfaces = 1
-Group1.interface1 = btInterface
-
+Group1.nrofInterfaces = 2
+Group1.interface1 = GuardianappInterface
+Group1.interface2 = RAappInterface
 
 # group2 specific settings
 Group2.groupID = Normal_app
 Group2.bufferSize = 50M
 Group2.movementModel = StationaryMovement
-Group2.nodeLocation = 250, 150
+Group2.nodeLocation = 300, 150
 Group2.nrofHosts = 1
-Group2.nrofInterfaces = 1
-Group2.interface1 = btInterface
-
+Group2.nrofInterfaces = 2
+Group2.interface1 = GuardianappInterface
+Group2.interface2 = RAappInterface
 
 # another group of pedestrians
-Group3.groupID = Dedicated_user
+Group3.groupID = Dedicated_app
 Group3.bufferSize = 50M
 Group3.movementModel = StationaryMovement
-Group3.nodeLocation = 350, 150
+Group3.nodeLocation = 350, 200
 Group3.nrofHosts = 1
-Group3.nrofInterfaces = 1
-Group3.interface1 = btInterface
+Group3.nrofInterfaces = 2
+Group3.interface1 = GuardianappInterface
+Group3.interface2 = RAappInterface
 
 # The Tram groups
-Group4.groupID = Authoritative_users
+Group4.groupID = Authoritative_app
 Group4.bufferSize = 50M
 Group4.movementModel = StationaryMovement
-Group4.nodeLocation = 450, 150
+Group4.nodeLocation = 400, 150
 Group4.nrofHosts = 1
-Group4.nrofInterfaces = 1
-Group4.interface1 = btInterface
+Group4.nrofInterfaces = 2
+Group4.interface1 = GuardianappInterface
+Group4.interface2 = RAappInterface
 
 Group5.groupID = RS
 Group5.bufferSize = 50M
-Group5.nodeLocation = 150, 250
+Group5.nodeLocation = 200, 50
 Group5.nrofHosts = 1
 Group5.nrofInterfaces = 1
-Group5.interface1 = btInterface
+Group5.interface1 = RARSInterface
 
 Group6.groupID = RA
 Group6.bufferSize = 50M
-Group6.nodeLocation = 150, 150
-Group6.nrofHosts = 1
-Group6.nrofInterfaces = 1
-Group6.interface1 = btInterface
+Group6.nodeLocation = 350, 150
+Group6.nrofInterfaces = 3
+Group6.interface1 = RAappInterface
+Group6.interface2 = RARSInterface
+Group6.interface3 = GuardianRAInterface
 
 Group7.groupID = Guardian
 Group7.bufferSize = 50M
@@ -154,18 +157,20 @@ Group7.movementModel = LinearFormation
 Group7.LinearFormation.startLocation = 250, 350
 Group7.LinearFormation.endLocation = 850, 350
 Group7.nrofHosts = 2
-Group7.nrofInterfaces = 1
-Group7.interface1 = btInterface
+Group7.nrofInterfaces = 3
+Group7.interface1 = GuardianappInterface
+Group7.interface2 = GuardianSMInterface
+Group7.interface3 = GuardianRAInterface
 
 Group8.groupID = Sensor_motes
 Group8.bufferSize = 50M
 Group8.movementModel = SensorMoteMobilityModel
-Group8.clusterRange = 100
+Group8.clusterRange = 50
 Group8.startclusterCenter = 250, 350
 Group8.endclusterCenter = 850, 350
 Group8.nrofHosts = 10
 Group8.nrofInterfaces = 1
-Group8.interface1 = btInterface
+Group8.interface1 = GuardianSMInterface
 
 ## Message creation parameters 
 # How many event generators
@@ -178,7 +183,7 @@ Events1.interval = 25,35
 # Message sizes (500kB - 1MB)
 Events1.size = 500k,1M
 # range of message source/destination addresses
-Events1.hosts = 0,5
+Events1.hosts = 0,18
 # Message ID prefix
 Events1.prefix = M
 
