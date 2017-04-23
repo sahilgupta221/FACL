@@ -49,6 +49,7 @@ public class SimpleBroadcastInterface extends NetworkInterface {
 				&& !isConnected(anotherInterface)
 				&& (this != anotherInterface)
                         && !(this.host.groupId.equals(anotherInterface.getHost().groupId))
+                        && !(this.host.groupId.contains("_app")&&anotherInterface.getHost().groupId.contains("_app"))
                         ) {
 			// new contact within range
 			// connection speed is the lower one of the two speeds 
