@@ -4,6 +4,8 @@
  */
 package core;
 
+import applications.Certificate;
+import applications.DigitalDocument;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +57,14 @@ public class Message implements Comparable<Message> {
 	/** Application ID of the application that created the message */
 	private String	appID;
 	
+        // sahil: some extra fields of FACL message construction
+            public String encryptedappid;
+            public ArrayList<String> function_list = null;
+            public DigitalDocument DD;
+            public Certificate Cert;
+            public Map<String,String> app_guardian_list=null;
+        //extra fields ends
+        
 	static {
 		reset();
 		DTNSim.registerForReset(Message.class.getCanonicalName());
