@@ -753,4 +753,9 @@ public class FloatingApplication extends Application {
 	/* do your reset'ing here */
 	msgs.clear();
     }
+
+    @Override
+    public void lowerapplicationDTNHostlistupdate(DTNHost host) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

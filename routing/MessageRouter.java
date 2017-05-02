@@ -99,7 +99,7 @@ public abstract class MessageRouter {
 	private int sendQueueMode;
 
 	/** applications attached to the host */
-	private HashMap<String, Collection<Application>> applications = null;
+	public HashMap<String, Collection<Application>> applications = null;
 	
 	/**
 	 * Constructor. Creates a new message router based on the settings in

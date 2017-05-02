@@ -15,13 +15,23 @@ import core.Settings;
 import core.SimClock;
 import core.SimScenario;
 import core.World;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author sahilgupta221
  */
 public class Guardianapplication extends Application{
-
+//	protected List<DTNHost> guardian_list;
+        /** List of sensor mote hosts in this simulation */
+        public Map<String, DTNHost> sensor_mote_list;
+        
+        public Guardianapplication(){	
+            super();
+            sensor_mote_list = new HashMap<String,DTNHost>();
+	}
+        
     @Override
     public Message handle(Message msg, DTNHost host) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -35,6 +45,11 @@ public class Guardianapplication extends Application{
     @Override
     public Application replicate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
+    @Override
+    public void lowerapplicationDTNHostlistupdate(DTNHost host) {
+       sensor_mote_list.put(host.name, host);
     }
     
 }

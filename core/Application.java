@@ -74,6 +74,13 @@ public abstract class Application {
 	 * @param host	The host this application instance is attached to.
 	 */
 	public abstract void update(DTNHost host);
+
+	/** 
+	 * if lower application want to update list
+	 * 
+	 * @param host	The host this application instance is attached to.
+	 */
+	public abstract void lowerapplicationDTNHostlistupdate(DTNHost host);        
 	
 	/** 
 	 * <p>

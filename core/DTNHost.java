@@ -5,6 +5,7 @@
  */
 package core;
 
+import applications.RAapplication;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	private Path path;
 	private double speed;
 	private double nextTimeToMove;
-	private String name;
+	public String name;
 	private List<MessageListener> msgListeners;
 	private List<MovementListener> movListeners;
 	private List<NetworkInterface> net;
@@ -99,11 +100,14 @@ public class DTNHost implements Comparable<DTNHost> {
 			}
 		}
                 
-                if(groupId.equals("RA")||groupId.equals("Sensor_motes")){
+                if(groupId.equals("RA")){
                     guardian_list = new HashMap<String,DTNHost>();
                 }
                 else if(groupId.equals("Guardian")){
                     sensor_mote_list = new HashMap<String,DTNHost>();
+                }
+                else if(groupId.equals("Sensor_motes")){
+                 guardian_list = new HashMap<String,DTNHost>();
                 }
 	}
 	

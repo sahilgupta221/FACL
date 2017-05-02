@@ -408,17 +408,27 @@ public class SimScenario implements Serializable {
                                    host.localgroupaddress++;
                                    guardian_list.add(host);
                                }
-                               
+
                                // attached guardian with sensor mote and sensor mote with guardian
                                if(host.groupId.equals("Sensor_motes"))
                                {
                                int number_of_sensor_motes_per_guardian = nrofHosts/this.guardCount;
-                               formationIndex = j%number_of_sensor_motes_per_guardian==0?++formationIndex:formationIndex;
-                               host.guardian_list.put(this.guardian_list.get(formationIndex).getAddress()+"", this.guardian_list.get(formationIndex));
-                               this.guardian_list.get(formationIndex).sensor_mote_list.put(host.getAddress()+"", host);
+                               formationIndex = j%number_of_sensor_motes_per_guardian==0?++formationIndex:formationIndex;                               
+//                               host.guardian_list.put(this.guardian_list.get(formationIndex).getAddress()+"", this.guardian_list.get(formationIndex));
+host.getRouter().applications.get("SensorMoteapplication").iterator().next().lowerapplicationDTNHostlistupdate(this.guardian_list.get(formationIndex));
+this.guardian_list.get(formationIndex).getRouter().applications.get("Guardianapplication").iterator().next().lowerapplicationDTNHostlistupdate(host);
                                }
 			}
+
 		}
+                
+                // setting guardian list to RA.
+                for(DTNHost h: hosts){
+                    if(h.groupId.equals("RA")){
+                        for(DTNHost hostg: guardian_list)
+                        h.getRouter().applications.get("Guardianapplication").iterator().next().lowerapplicationDTNHostlistupdate(hostg);
+                    }
+                }
 	}
 
 	/**

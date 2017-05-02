@@ -302,4 +302,9 @@ public class PingApplication extends Application {
 		this.pingSize = pingSize;
 	}
 
+    @Override
+    public void lowerapplicationDTNHostlistupdate(DTNHost host) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
