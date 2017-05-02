@@ -1,8 +1,32 @@
+commit e8807fcea40d2693fa7df7a56099413591923397
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Sun Apr 23 01:31:38 2017 -0400
+
+    Test ping application. We can have our own applications in the application layer. APPID is unique now but can be obtain from default setting file. Storage of Apps based on APPID.
+
+ log.txt                                         |  41 ++
+ reports/default_scenario_EnergyLevelReport.txt  |   0
+ reports/default_scenario_MessageStatsReport.txt |  20 -
+ routing/ProphetRouter.java                      | 568 ++++++++++++------------
+ 4 files changed, 325 insertions(+), 304 deletions(-)
+
+commit 26af4606e127b442aed3c6252d5aff2add458b4f
+Author: Sahil Gupta <sahilgupta221@gmail.com>
+Date:   Sun Apr 23 01:29:36 2017 -0400
+
+    Test ping application. We can have our own applications in the application layer. APPID is unique now but can be obtain from default setting file. Storage of Apps based on APPID.
+
+ default_settings.txt | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
 commit b94a2dd2e79203b6f36ac1d45d0c7370d6930bc6
 Author: Sahil Gupta <sahilgupta221@gmail.com>
 Date:   Sat Apr 22 22:49:11 2017 -0400
 
     Default_setting file. Implemented energy model and energy report.
+
+ default_settings.txt | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
 commit cf55f85071e9f2d261c26bea0b718c7813a360de
 Author: Sahil Gupta <sahilgupta221@gmail.com>
@@ -10,11 +34,17 @@ Date:   Sat Apr 22 22:34:18 2017 -0400
 
     Adjust Various interfaces transmission range randomly. Looking for real data in transmission range and transmission rate.
 
+ default_settings.txt | 75 ++++++++++++++++++++++++++++------------------------
+ 1 file changed, 40 insertions(+), 35 deletions(-)
+
 commit 3e662e866fd81f50ca6f5135364373bb99e56c90
 Author: Sahil Gupta <sahilgupta221@gmail.com>
 Date:   Sat Apr 22 22:30:51 2017 -0400
 
     SimpleBroadcastInterface connect method. Change in if condition to not allow same group host having connections and _app condition added.
+
+ interfaces/SimpleBroadcastInterface.java | 1 +
+ 1 file changed, 1 insertion(+)
 
 commit c945193b3555908c7679edbec2c7b29daf096535
 Author: Sahil Gupta <sahilgupta221@gmail.com>
@@ -22,11 +52,17 @@ Date:   Sat Apr 22 21:38:03 2017 -0400
 
     SimpleBroadcastInterface connect method. Change in if condition to not allow same group host having connections.
 
+ interfaces/SimpleBroadcastInterface.java | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
 commit 9f97dc7b784b4edbf9b27c7e69bd236e7a6b847d
 Author: Sahil Gupta <sahilgupta221@gmail.com>
 Date:   Thu Apr 20 20:33:13 2017 -0400
 
     ALIBABA
+
+ core/DTNHost.java | 1 +
+ 1 file changed, 1 insertion(+)
 
 commit ad6d2aeda07a8d4e4d7c225b434b15748ace2397
 Author: Sahil Gupta <sahilgupta221@gmail.com>
@@ -34,8 +70,375 @@ Date:   Thu Apr 20 20:08:34 2017 -0400
 
     trial
 
+ LICENSE.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 6d9c5f4e937c23c2dda93a5ea6ac6906ddbd4b8a
 Author: Sahil Gupta <sahilgupta221@gmail.com>
 Date:   Thu Apr 20 16:40:40 2017 -0400
 
     first commit
+
+ HISTORY.txt                                        |  196 +
+ LICENSE.txt                                        |  628 +++
+ README-FloatingContent.txt                         |  364 ++
+ README.txt                                         |  723 +++
+ WDM_conf_help.txt                                  |   59 +
+ applications/FloatingApplication.java              |  756 +++
+ applications/PingApplication.java                  |  305 +
+ cluster_settings.txt                               |  116 +
+ compile.bat                                        |    8 +
+ core-def                                           |   11 +
+ core/Application.java                              |  125 +
+ core/ApplicationListener.java                      |   35 +
+ core/ArithmeticCondition.java                      |   83 +
+ core/CBRConnection.java                            |  124 +
+ core/Connection.java                               |  230 +
+ core/ConnectionListener.java                       |   27 +
+ core/Coord.java                                    |  179 +
+ core/DTN2Manager.java                              |  222 +
+ core/DTNHost.java                                  |  553 ++
+ core/DTNSim.java                                   |  226 +
+ core/Debug.java                                    |  115 +
+ core/Message.java                                  |  376 ++
+ core/MessageListener.java                          |   56 +
+ core/ModuleCommunicationBus.java                   |  229 +
+ core/ModuleCommunicationListener.java              |   21 +
+ core/MovementListener.java                         |   29 +
+ core/NetworkInterface.java                         |  508 ++
+ core/Settings.java                                 |  885 +++
+ core/SettingsError.java                            |   25 +
+ core/SimClock.java                                 |   88 +
+ core/SimError.java                                 |   32 +
+ core/SimScenario.java                              |  440 ++
+ core/UpdateListener.java                           |   24 +
+ core/VBRConnection.java                            |  108 +
+ core/World.java                                    |  277 +
+ core/package.html                                  |   14 +
+ data/CentralPOIs.wkt                               |    7 +
+ data/HelsinkiMedium/A_bus.wkt                      |    2 +
+ data/HelsinkiMedium/A_homes.wkt                    |  283 +
+ data/HelsinkiMedium/A_meetingspots.wkt             |    7 +
+ data/HelsinkiMedium/A_offices.wkt                  |   59 +
+ data/HelsinkiMedium/B_bus.wkt                      |    2 +
+ data/HelsinkiMedium/B_homes.wkt                    |  241 +
+ data/HelsinkiMedium/B_meetingspots.wkt             |    1 +
+ data/HelsinkiMedium/B_offices.wkt                  |   19 +
+ data/HelsinkiMedium/C_bus.wkt                      |    2 +
+ data/HelsinkiMedium/C_homes.wkt                    |  189 +
+ data/HelsinkiMedium/C_meetingspots.wkt             |    3 +
+ data/HelsinkiMedium/C_offices.wkt                  |   39 +
+ data/HelsinkiMedium/D_bus.wkt                      |    1 +
+ data/HelsinkiMedium/D_homes.wkt                    |  245 +
+ data/HelsinkiMedium/D_meetingspots.wkt             |    3 +
+ data/HelsinkiMedium/D_offices.wkt                  |   39 +
+ data/HelsinkiMedium/E_bus.wkt                      |    2 +
+ data/HelsinkiMedium/E_homes.wkt                    |  183 +
+ data/HelsinkiMedium/E_meetingspots.wkt             |    3 +
+ data/HelsinkiMedium/E_offices.wkt                  |   43 +
+ data/HelsinkiMedium/F_bus.wkt                      |    2 +
+ data/HelsinkiMedium/F_homes.wkt                    |  181 +
+ data/HelsinkiMedium/F_meetingspots.wkt             |    7 +
+ data/HelsinkiMedium/F_offices.wkt                  |   59 +
+ data/HelsinkiMedium/G_bus.wkt                      |    2 +
+ data/HelsinkiMedium/G_homes.wkt                    |  265 +
+ data/HelsinkiMedium/G_meetingspots.wkt             |    7 +
+ data/HelsinkiMedium/G_offices.wkt                  |   59 +
+ data/HelsinkiMedium/H_bus.wkt                      |    2 +
+ data/HelsinkiMedium/roads.wkt                      | 5887 ++++++++++++++++++++
+ data/Manhattan/bus.wkt                             |    2 +
+ data/Manhattan/roads.wkt                           | 2559 +++++++++
+ data/ParkPOIs.wkt                                  |   21 +
+ data/WestPOIs.wkt                                  |    5 +
+ data/cluster/ferryroute.wkt                        |    1 +
+ data/cluster/origin.wkt                            |    1 +
+ data/demo_bus.wkt                                  |    2 +
+ data/helsinki_underlay.png                         |  Bin 0 -> 224163 bytes
+ data/main_roads.wkt                                |   21 +
+ data/pedestrian_paths.wkt                          |   31 +
+ data/roads.wkt                                     | 2149 +++++++
+ data/shops.wkt                                     |   71 +
+ data/throwboxes.wkt                                |   11 +
+ data/tram10.wkt                                    |    1 +
+ data/tram3.wkt                                     |    2 +
+ data/tram4.wkt                                     |    2 +
+ default_settings.txt                               |  238 +
+ doc/create_docs.sh                                 |    1 +
+ ee/1000c_100n_12h.txt                              | 1000 ++++
+ ee/100_events_10_nodes_500ks.txt                   |  100 +
+ ee/1400_events_2000_nodes_700ks.txt                | 1400 +++++
+ ee/350_events_500_nodes_700ks.txt                  |  350 ++
+ ee/700_events_1000_nodes_700ks.txt                 |  700 +++
+ ee/70_events_100_nodes_700ks.txt                   |   70 +
+ epidemic_settings.txt                              |    2 +
+ floating_app.txt                                   |   95 +
+ gui/DTNSimGUI.java                                 |  337 ++
+ gui/EventLogControl.java                           |   64 +
+ gui/EventLogControlPanel.java                      |  159 +
+ gui/EventLogPanel.java                             |  332 ++
+ gui/GUIControls.java                               |  396 ++
+ gui/InfoPanel.java                                 |  134 +
+ gui/MainWindow.java                                |  112 +
+ gui/NodeChooser.java                               |  212 +
+ gui/RoutingInfoWindow.java                         |  119 +
+ gui/SimMenuBar.java                                |  259 +
+ gui/buttonGraphics/FastForward16.gif               |  Bin 0 -> 200 bytes
+ gui/buttonGraphics/FastForward24.gif               |  Bin 0 -> 279 bytes
+ gui/buttonGraphics/Pause16.gif                     |  Bin 0 -> 192 bytes
+ gui/buttonGraphics/Pause24.gif                     |  Bin 0 -> 272 bytes
+ gui/buttonGraphics/Play16.gif                      |  Bin 0 -> 186 bytes
+ gui/buttonGraphics/Play24.gif                      |  Bin 0 -> 247 bytes
+ gui/buttonGraphics/StepForward16.gif               |  Bin 0 -> 200 bytes
+ gui/buttonGraphics/StepForward24.gif               |  Bin 0 -> 279 bytes
+ gui/buttonGraphics/Zoom16.gif                      |  Bin 0 -> 303 bytes
+ gui/buttonGraphics/Zoom24.gif                      |  Bin 0 -> 485 bytes
+ gui/nodefilter/NodeFilter.java                     |   26 +
+ gui/nodefilter/NodeMessageFilter.java              |   34 +
+ gui/package.html                                   |    8 +
+ gui/playfield/MapGraphic.java                      |   53 +
+ gui/playfield/MessageGraphic.java                  |   43 +
+ gui/playfield/NodeGraphic.java                     |  208 +
+ gui/playfield/PathGraphic.java                     |   54 +
+ gui/playfield/PlayField.java                       |  310 ++
+ gui/playfield/PlayFieldGraphic.java                |   72 +
+ gui/playfield/ScaleReferenceGraphic.java           |   58 +
+ gui/playfield/package.html                         |    9 +
+ hcs_floating.txt                                   |  242 +
+ input/BinaryEventsReader.java                      |  137 +
+ input/ConnectionEvent.java                         |   54 +
+ input/DTN2Events.java                              |  256 +
+ input/EventQueue.java                              |   30 +
+ input/EventQueueHandler.java                       |   94 +
+ input/ExternalEvent.java                           |   66 +
+ input/ExternalEventsQueue.java                     |  163 +
+ input/ExternalEventsReader.java                    |   27 +
+ input/ExternalMovementReader.java                  |  216 +
+ input/ExternalPathMovementReader.java              |  348 ++
+ input/MessageBurstGenerator.java                   |   92 +
+ input/MessageCreateEvent.java                      |   54 +
+ input/MessageDeleteEvent.java                      |   59 +
+ input/MessageEvent.java                            |   36 +
+ input/MessageEventGenerator.java                   |  231 +
+ input/MessageRelayEvent.java                       |   70 +
+ input/OneFromEachMessageGenerator.java             |   75 +
+ input/OneToEachMessageGenerator.java               |   75 +
+ input/ScheduledUpdatesQueue.java                   |  105 +
+ input/StandardEventsReader.java                    |  233 +
+ input/WKTMapReader.java                            |  159 +
+ input/WKTReader.java                               |  327 ++
+ input/package.html                                 |    8 +
+ interfaces/ConnectivityGrid.java                   |  323 ++
+ interfaces/ConnectivityOptimizer.java              |   48 +
+ interfaces/InterferenceLimitedInterface.java       |  166 +
+ interfaces/SimpleBroadcastInterface.java           |  124 +
+ lib/DTNConsoleConnection.jar                       |  Bin 0 -> 9017 bytes
+ lib/ECLA.jar                                       |  Bin 0 -> 108393 bytes
+ movement/BusControlSystem.java                     |  144 +
+ movement/BusMovement.java                          |   89 +
+ movement/BusTravellerMovement.java                 |  357 ++
+ movement/CarMovement.java                          |   80 +
+ movement/EveningActivityControlSystem.java         |  140 +
+ movement/EveningActivityMovement.java              |  299 +
+ movement/EveningTrip.java                          |  128 +
+ movement/ExtendedMovementModel.java                |   92 +
+ movement/ExternalMovement.java                     |  277 +
+ movement/ExternalPathMovement.java                 |  162 +
+ movement/GridLocation.java                         |  107 +
+ movement/HomeActivityMovement.java                 |  249 +
+ movement/LinearFormation.java                      |  117 +
+ movement/LinearMovement.java                       |  180 +
+ movement/MapBasedMovement.java                     |  432 ++
+ movement/MapRouteMovement.java                     |  159 +
+ movement/ModifiedRandomDirection.java              |   44 +
+ movement/MovementModel.java                        |  288 +
+ movement/OfficeActivityMovement.java               |  286 +
+ movement/Path.java                                 |  141 +
+ movement/RandomDirection.java                      |  219 +
+ movement/RandomWalk.java                           |   95 +
+ movement/RandomWaypoint.java                       |   65 +
+ movement/SensorMoteMobilityModel.java              |  139 +
+ movement/ShortestPathMapBasedMovement.java         |   73 +
+ movement/StationaryMovement.java                   |   70 +
+ movement/SwitchableMovement.java                   |   37 +
+ movement/TransportMovement.java                    |   18 +
+ movement/WorkingDayMovement.java                   |  180 +
+ movement/map/DijkstraPathFinder.java               |  228 +
+ movement/map/MapNode.java                          |  146 +
+ movement/map/MapRoute.java                         |  175 +
+ movement/map/PointsOfInterest.java                 |  223 +
+ movement/map/SimMap.java                           |  167 +
+ movement/map/package.html                          |    9 +
+ movement/package.html                              |   18 +
+ one.bat                                            |    1 +
+ one.sh                                             |    2 +
+ ping_app_settings.txt                              |   19 +
+ prophet_settings.txt                               |   18 +
+ report/AdjacencyGraphvizReport.java                |  117 +
+ report/ConnectivityDtnsim2Report.java              |   71 +
+ report/ConnectivityONEReport.java                  |   69 +
+ report/ContactTimesReport.java                     |  213 +
+ report/ContactsDuringAnICTReport.java              |  115 +
+ report/ContactsPerHourReport.java                  |   61 +
+ report/CreatedMessagesReport.java                  |   56 +
+ report/DTN2Reporter.java                           |   80 +
+ report/DeliveredMessagesReport.java                |   79 +
+ report/DistanceDelayReport.java                    |  136 +
+ report/EncountersVSUniqueEncountersReport.java     |   66 +
+ report/EnergyLevelReport.java                      |   96 +
+ report/EventLogReport.java                         |   88 +
+ report/FloatingAppReporter.java                    |   44 +
+ report/FloatingContentSummaryReport.java           |  381 ++
+ report/FloatingMessageReport.java                  |  103 +
+ report/InterContactTimesReport.java                |   35 +
+ report/MessageAvailabilityReport.java              |  116 +
+ report/MessageCopyCountReport.java                 |   52 +
+ report/MessageDelayReport.java                     |   81 +
+ report/MessageDeliveryReport.java                  |   72 +
+ report/MessageGraphvizReport.java                  |   79 +
+ report/MessageLocationReport.java                  |  108 +
+ report/MessageReport.java                          |   61 +
+ report/MessageStatsReport.java                     |  182 +
+ report/MovementNs2Report.java                      |   89 +
+ report/PingAppReporter.java                        |   76 +
+ report/Report.java                                 |  420 ++
+ report/TotalContactTimeReport.java                 |   79 +
+ report/TotalEncountersReport.java                  |   75 +
+ report/UniqueEncountersReport.java                 |   76 +
+ report/package.html                                |   13 +
+ reports/default_scenario_MessageStatsReport.txt    |   20 +
+ routing/ActiveRouter.java                          |  665 +++
+ routing/DirectDeliveryRouter.java                  |   39 +
+ routing/EpidemicOracleRouter.java                  |  181 +
+ routing/EpidemicRouter.java                        |   56 +
+ routing/FirstContactRouter.java                    |   74 +
+ routing/FloatingContentRouter.java                 |  645 +++
+ routing/LifeRouter.java                            |  115 +
+ routing/MaxPropRouter.java                         |  600 ++
+ routing/MaxPropRouterWithEstimation.java           |  722 +++
+ routing/MessageRouter.java                         |  658 +++
+ routing/PassiveRouter.java                         |   43 +
+ routing/ProphetRouter.java                         |  308 +
+ routing/ProphetRouterWithEstimation.java           |  523 ++
+ routing/ProphetV2Router.java                       |  361 ++
+ routing/SprayAndWaitRouter.java                    |  163 +
+ routing/WaveRouter.java                            |  169 +
+ routing/maxprop/MaxPropDijkstra.java               |  224 +
+ routing/maxprop/MeetingProbabilitySet.java         |  173 +
+ routing/maxprop/package.html                       |    8 +
+ routing/package.html                               |   14 +
+ routing/schedule/ScheduleDijkstra.java             |  211 +
+ routing/schedule/ScheduleEntry.java                |  111 +
+ routing/schedule/ScheduleOracle.java               |   91 +
+ routing/util/EnergyModel.java                      |  211 +
+ routing/util/MessageTransferAcceptPolicy.java      |  325 ++
+ routing/util/RoutingInfo.java                      |   66 +
+ sim_float_parallel_complex.sh                      |  268 +
+ snw_comparison_settings.txt                        |   13 +
+ snw_settings.txt                                   |    4 +
+ test/AbstractRouterTest.java                       |  154 +
+ test/ActivenessHandlerTest.java                    |   74 +
+ test/AdjacencyGraphvizReportTest.java              |  104 +
+ test/AllTests.java                                 |   56 +
+ test/ConnectionTest.java                           |  206 +
+ test/ContactTimesReportTest.java                   |  158 +
+ test/CoordTest.java                                |   31 +
+ test/DijkstraPathFinderTest.java                   |   90 +
+ test/DistanceDelayReportTest.java                  |   83 +
+ test/EpidemicRouterTest.java                       |  622 +++
+ test/ExternalEventsQueueTest.java                  |  100 +
+ test/ExternalMovementReaderTest.java               |   77 +
+ test/ExternalMovementTest.java                     |  122 +
+ test/MapBasedMovementTest.java                     |  267 +
+ test/MapNodeTest.java                              |   85 +
+ test/MaxPropDijkstraTest.java                      |  157 +
+ test/MaxPropRouterTest.java                        |  306 +
+ test/MessageChecker.java                           |  159 +
+ test/MessageGraphvizReportTest.java                |   75 +
+ test/MessageTest.java                              |   64 +
+ test/ModuleCommunicationBusTest.java               |  106 +
+ test/PointsOfInterestTest.java                     |  217 +
+ test/ProphetRouterTest.java                        |  154 +
+ test/ScheduleDijkstraTest.java                     |   99 +
+ test/ScheduledUpdatesQueueTest.java                |  110 +
+ test/SettingsTest.java                             |  219 +
+ test/StationaryMovement.java                       |   62 +
+ test/TestDTNHost.java                              |   75 +
+ test/TestInterface.java                            |   90 +
+ test/TestSettings.java                             |   74 +
+ test/TestUtils.java                                |  148 +
+ test/TotalContactTimeReportTest.java               |  138 +
+ test/WKTPointReaderTest.java                       |   48 +
+ test/WKTReaderTest.java                            |  252 +
+ test/WorldTest.java                                |  148 +
+ test/package.html                                  |    8 +
+ toolkit/Common.pm                                  |   60 +
+ toolkit/ccdfPlotter.pl                             |  201 +
+ toolkit/createCircles.pl                           |   60 +
+ toolkit/createCreates.pl                           |   90 +
+ toolkit/delProb.pl                                 |   98 +
+ toolkit/dieselnetConverter.pl                      |  126 +
+ toolkit/dtnsim2parser.pl                           |   79 +
+ .../dtnsim2patches/DummyEpidemicHandler.java.diff  |    5 +
+ .../EpidemicKnowledgeHandler.java.diff             |   10 +
+ toolkit/dtnsim2patches/README.txt                  |    1 +
+ toolkit/getAverages.pl                             |  100 +
+ toolkit/getStats.pl                                |  117 +
+ toolkit/getStatsAverages.pl                        |  103 +
+ toolkit/messageAvailabilityAnalyzer.pl             |   67 +
+ toolkit/messageAvailabilityAnalyzer2.pl            |  140 +
+ toolkit/messageCopyCountAnalyzer.pl                |  114 +
+ toolkit/messageCopyCountPlotter.pl                 |   98 +
+ toolkit/messageLocationAnimator.pl                 |  152 +
+ toolkit/splotEnergy.pl                             |  113 +
+ toolkit/transimsParser.pl                          |   88 +
+ tools/get-metric.py                                |   53 +
+ ui/DTNSimTextUI.java                               |   74 +
+ ui/DTNSimUI.java                                   |  158 +
+ ui/package.html                                    |    8 +
+ util/ActivenessHandler.java                        |  190 +
+ util/ParetoRNG.java                                |   53 +
+ util/Range.java                                    |   76 +
+ util/Tuple.java                                    |   47 +
+ util/package.html                                  |    8 +
+ wdm_settings/BusVsCar0.txt                         |  306 +
+ wdm_settings/BusVsCar100.txt                       |  306 +
+ wdm_settings/Demo.txt                              |  140 +
+ wdm_settings/Density100.txt                        |  139 +
+ wdm_settings/Density2000.txt                       |  139 +
+ wdm_settings/Density2000InfBuffer.txt              |  139 +
+ wdm_settings/Density500.txt                        |  139 +
+ wdm_settings/DistrictsOff.txt                      |  139 +
+ wdm_settings/Manhattan.txt                         |  139 +
+ wdm_settings/ManhattanSpecialOfficeSize10.txt      |  139 +
+ wdm_settings/ManhattanSpecialOfficeSize150.txt     |  139 +
+ wdm_settings/ManhattanSpecialOfficeSize200.txt     |  139 +
+ wdm_settings/ManhattanSpecialOfficeSize300.txt     |  139 +
+ wdm_settings/ManhattanSpecialOfficeSize50.txt      |  139 +
+ wdm_settings/MapBasedMovement.txt                  |  116 +
+ wdm_settings/MapBasedMovementBackAllowed.txt       |  116 +
+ wdm_settings/NrOffices1000.txt                     |  139 +
+ wdm_settings/NrOffices50.txt                       |  139 +
+ wdm_settings/ORIGINAL.txt                          |  279 +
+ wdm_settings/OfficeSize10.txt                      |  306 +
+ wdm_settings/OfficeSize500.txt                     |  306 +
+ wdm_settings/OfficeWaitCoeff1.txt                  |  306 +
+ wdm_settings/OfficeWaitInf.txt                     |  306 +
+ wdm_settings/OfficeWaitNone.txt                    |  306 +
+ wdm_settings/ProbShopping0.txt                     |  306 +
+ wdm_settings/ProbShopping100.txt                   |  306 +
+ wdm_settings/RWPFastSetting.txt                    |  116 +
+ wdm_settings/RWPSetting.txt                        |  116 +
+ wdm_settings/RandomWalkSetting.txt                 |  116 +
+ wdm_settings/ShoppingGroup1.txt                    |  306 +
+ wdm_settings/ShoppingGroupMax10.txt                |  306 +
+ wdm_settings/ShoppingWait0.txt                     |  306 +
+ wdm_settings/ShoppingWait4h.txt                    |  306 +
+ wdm_settings/ShortestPathMapBasedMovement.txt      |  116 +
+ wdm_settings/Taxi0.txt                             |  306 +
+ wdm_settings/Taxi100.txt                           |  306 +
+ wdm_settings/Taxi500.txt                           |  306 +
+ wdm_settings/TimeDiff0.txt                         |  306 +
+ wdm_settings/TimeDiffEven.txt                      |  306 +
+ wdm_settings/WorkDayLength14400.txt                |  306 +
+ wdm_settings/WorkDayLength43200.txt                |  306 +
+ 362 files changed, 64285 insertions(+)
