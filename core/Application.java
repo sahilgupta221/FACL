@@ -67,7 +67,10 @@ public abstract class Application {
 	 */
 	public abstract Message handle(Message msg, DTNHost host);
 	
-
+	/**
+	 * for message creation in the application level
+	 */
+	public abstract Message create_msg(DTNHost src,DTNHost dest,Message m);
 	/** 
 	 * Called every simulation cycle.
 	 * 
@@ -77,7 +80,7 @@ public abstract class Application {
 
 	/** 
 	 * if lower application want to update list
-	 * 
+	 * like guardian having sensor mote list
 	 * @param host	The host this application instance is attached to.
 	 */
 	public abstract void lowerapplicationDTNHostlistupdate(DTNHost host);        

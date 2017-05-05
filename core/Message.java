@@ -27,9 +27,10 @@ public class Message implements Comparable<Message> {
 	private DTNHost from;
 	private DTNHost to;
 	/** Identifier of the message */
-	private String id;
+	public String id;
 	/** Size of the message (bytes) */
-	private int size;
+	public int size;
+
 	/** List of nodes this message has passed */
 	private List<DTNHost> path; 
 	/** Next unique identifier to be given */
@@ -45,7 +46,7 @@ public class Message implements Comparable<Message> {
 	
 	/** if a response to this message is required, this is the size of the 
 	 * response message (or 0 if no response is requested) */
-	private int responseSize;
+	public int responseSize;
 	/** if this message is a response message, this is set to the request msg*/
 	private Message requestMsg;
 	
@@ -55,7 +56,7 @@ public class Message implements Comparable<Message> {
 	private Map<String, Object> properties;
 	
 	/** Application ID of the application that created the message */
-	private String	appID;
+	public String	appID;
 	
         // sahil: some extra fields of FACL message construction
             public String encryptedappid;
@@ -63,6 +64,7 @@ public class Message implements Comparable<Message> {
             public DigitalDocument DD;
             public Certificate Cert;
             public Map<String,String> app_guardian_list=null;
+            public String content;
         //extra fields ends
         
 	static {
@@ -325,6 +327,9 @@ public class Message implements Comparable<Message> {
 		return this.properties.get(key);
 	}
 	
+        public void setSize(int size) {
+        this.size = size;
+        }
 	/**
 	 * Updates a value for an existing property. For storing the value first 
 	 * time, {@link #addProperty(String, Object)} should be used which

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package applications;
-
 import java.util.Random;
 
 import report.PingAppReporter;
@@ -20,23 +19,34 @@ import core.World;
  *
  * @author sahilgupta221
  */
-public class RSapplication extends Application{
+public class delegatedapplictions extends Application{
 
     @Override
     public Message handle(Message msg, DTNHost host) {
-        if(msg.content.equals("listofguardtoRS")){//(7)
-            update_table(msg,host);
-        }
-        return msg;
+                if(msg.content.equals("permissiontickettodelegateduserfromRA")){//(21)
+                if(message_parameters_content_analysis(msg)){
+                DTNHost RA =null;    
+            	Message m = new Message(msg.getTo(),RA, msg.id+"1", msg.size);
+                m.content = "sendingdelegatedpermissiontickettoRA";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }                
+                }
+                else if(msg.content.equals("decisionticketfordelegatedapp")){//(21)
+                if(message_parameters_content_analysis(msg)){
+
+                }                
+                }
+     return msg;
+    }
+
+    @Override
+    public Message create_msg(DTNHost src, DTNHost dest, Message m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void update(DTNHost host) {
-        //todo: in case of delegated app. remove permision of app who given permission to this app
-    }
-
-    @Override
-    public Application replicate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -46,11 +56,11 @@ public class RSapplication extends Application{
     }
 
     @Override
-    public Message create_msg(DTNHost src, DTNHost dest, Message m) {
+    public Application replicate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void update_table(Message msg, DTNHost host) {
+    private boolean message_parameters_content_analysis(Message msg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -266,6 +266,16 @@ public class World {
 		return node; 
 	}
 
+	public DTNHost getNodeByname(String name) {
+
+            for(DTNHost h: hosts){
+                if(h.name.equals(name)){
+                    return h;
+                }
+            }
+		return null; 
+	}
+        
 	/**
 	 * Schedules an update request to all nodes to happen at the specified 
 	 * simulation time.

@@ -34,7 +34,56 @@ public class Guardianapplication extends Application{
         
     @Override
     public Message handle(Message msg, DTNHost host) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(msg.content.equals("guardforverification")){//(8)(9)
+                if(message_parameters_content_analysis(msg)){
+                DTNHost RA=null;     
+            	Message m = new Message(msg.getTo(), RA, msg.id+"1", msg.size);
+                m.content = "certificatetoRAforverify";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+        }
+        else if(msg.content.equals("sendconformationforverificationcert")){//(10)(11)
+                if(message_parameters_content_analysis(msg)){
+                DTNHost RA=null;     
+            	Message m = new Message(msg.getTo(), RA, msg.id+"1", msg.size);
+                m.content = "confirmationtosenddatafromuser";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+        }else if(msg.content.equals("functionalitydataresquest")){//(12)(14)
+                if(ACL_check_and_violations(msg,host)==1){// to sensor for data request
+                DTNHost sensornode=null;     
+            	Message m = new Message(msg.getTo(), sensornode, msg.id+"1", msg.size);
+                m.content = "sensorfordatarequest";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+                else if(ACL_check_and_violations(msg,host)==2){//notification not in ACL to app
+                DTNHost normalapp=null;     
+            	Message m = new Message(msg.getTo(), normalapp, msg.id+"1", msg.size);
+                m.content = "notinacllistofguardian";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+                else if(ACL_check_and_violations(msg,host)==1){//send to RA for violation
+                DTNHost RA=null;     
+            	Message m = new Message(msg.getTo(), RA, msg.id+"1", msg.size);
+                m.content = "violationmessagetoRAforuser";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+        }
+        else if(msg.content.equals("dataforusertoguardian")){//(17)(18)
+                if(message_parameters_content_analysis(msg)){//do data aggregation here if required
+                DTNHost normalapp=null;     
+            	Message m = new Message(msg.getTo(), normalapp, msg.id+"1", msg.size);
+                m.content = "datatouserfromsensorviaguardian";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+        }
+        return msg;
     }
 
     @Override
@@ -51,5 +100,20 @@ public class Guardianapplication extends Application{
     public void lowerapplicationDTNHostlistupdate(DTNHost host) {
        sensor_mote_list.put(host.name, host);
     }
+
+    @Override
+    public Message create_msg(DTNHost src, DTNHost dest, Message m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private boolean message_parameters_content_analysis(Message msg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private int ACL_check_and_violations(Message msg, DTNHost host) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
+
+

@@ -307,4 +307,9 @@ public class PingApplication extends Application {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public Message create_msg(DTNHost src, DTNHost dest, Message m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -34,7 +34,16 @@ public class SensorMoteapplication extends Application{
         
     @Override
     public Message handle(Message msg, DTNHost host) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(msg.content.equals("sensorfordatarequest")){//(14)(17)
+                if(message_parameters_content_analysis(msg)){
+            	Message m = new Message(msg.getTo(), msg.getFrom(), msg.id+"1", msg.size);
+                m.content = "dataforusertoguardian";
+		m.setResponseSize(msg.responseSize);
+		msg.getTo().createNewMessage(m);          
+                }
+        }
+        
+      return msg;
     }
 
     @Override
@@ -50,6 +59,15 @@ public class SensorMoteapplication extends Application{
     @Override
     public void lowerapplicationDTNHostlistupdate(DTNHost host) {
      guardian_list.put(host.name, host);
+    }
+
+    @Override
+    public Message create_msg(DTNHost src, DTNHost dest, Message m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private boolean message_parameters_content_analysis(Message msg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
